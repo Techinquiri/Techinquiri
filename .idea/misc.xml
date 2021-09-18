@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Techinquiri/app/src/main/res/drawable/background_splash.xml" value="0.19583333333333333" />
+        <entry key="..\:/Techinquiri/app/src/main/res/drawable/splash_background.xml" value="0.19583333333333333" />
+        <entry key="..\:/Techinquiri/app/src/main/res/layout/activity_animation_logo.xml" value="0.10666666666666667" />
+        <entry key="..\:/Techinquiri/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Techinquiri/app/src/main/res/layout/activity_splash.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/drawable/rounded_rectangle.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.75" />
       </map>
