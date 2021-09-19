@@ -38,8 +38,8 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="Skip"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,24 +49,27 @@
             android:id="@+id/containedButton"
             android:layout_width="81dp"
             android:layout_height="83dp"
-            android:layout_marginTop="130dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="28dp"
             app:icon="@drawable/ic_baseline_arrow_forward"
             app:iconGravity="textTop"
             app:iconSize="40sp"
             app:layout_constraintBottom_toBottomOf="@+id/textButton1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="185dp"
             android:layout_height="216dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textButton"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:srcCompat="@mipmap/get_started3" />
 
         <TextView
             android:id="@+id/textView7"
