@@ -6,6 +6,11 @@
         <entry key="app/src/main/res/drawable/ic_add_24dp.xml" value="0.3076923076923077" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward.xml" value="0.18201754385964913" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.28125" />
+        <entry key="..\:/Techinquiri/app/src/main/res/drawable/background_splash.xml" value="0.19583333333333333" />
+        <entry key="..\:/Techinquiri/app/src/main/res/drawable/splash_background.xml" value="0.19583333333333333" />
+        <entry key="..\:/Techinquiri/app/src/main/res/layout/activity_animation_logo.xml" value="0.10666666666666667" />
+        <entry key="..\:/Techinquiri/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Techinquiri/app/src/main/res/layout/activity_splash.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/drawable/rounded_rectangle.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/drawable/stroke_color.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
