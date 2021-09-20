@@ -10,9 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Techinquiri">
         <activity
+            android:name=".RewardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StoryQuestionsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StoryContentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StoriesHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GetStarted3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".GetStarted2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".GetStarted1Activity"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreen"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,11 +43,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
