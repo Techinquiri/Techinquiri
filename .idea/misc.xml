@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_add_24dp.xml" value="0.3076923076923077" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward.xml" value="0.18201754385964913" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.28125" />
         <entry key="app/src/main/res/drawable/rounded_rectangle.xml" value="0.21614583333333334" />
@@ -11,6 +12,7 @@
         <entry key="app/src/main/res/layout/get_started1.xml" value="0.25" />
         <entry key="app/src/main/res/layout/get_started2.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/get_started3.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/reward.xml" value="0.29444444444444445" />
         <entry key="app/src/main/res/layout/stories_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/story_content.xml" value="0.22" />
         <entry key="app/src/main/res/layout/story_questions.xml" value="0.26434426229508196" />
