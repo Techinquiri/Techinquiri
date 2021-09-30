@@ -12,8 +12,7 @@ import com.example.techinquiri.data.dbHandler;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button skip;
-    dbHandler db;
+    Button skip,loginbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +20,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         skip = (Button)findViewById(R.id.textButton);
+        loginbutton = (Button)findViewById(R.id.loginbutton);
 
         skip.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
             {
-                Boolean checkInsert1 = db.insert("Yaksh & Pandavas");
-                Boolean checkInsert2 = db.insert("Squirrel's Effort for RamSetu");
-                Boolean checkInsert3 = db.insert("Pandora's Box");
-                if(checkInsert1==false | checkInsert2==false | checkInsert3==false)
-                {
-                    Toast.makeText(MainActivity.this, "Error Occured", Toast.LENGTH_SHORT).show();
-                }
                 Intent intent = new Intent(MainActivity.this, StoriesHomeActivity.class);
                 startActivity(intent);
             }
         });
 
-        db = new dbHandler(this);
+        loginbutton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent1);
+            }
+        });
 
     }
 }
