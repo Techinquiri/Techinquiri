@@ -12,7 +12,7 @@ import com.example.techinquiri.data.dbHandler;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button skip,loginbutton;
+    Button skip,loginbutton,signupbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         skip = (Button)findViewById(R.id.textButton);
         loginbutton = (Button)findViewById(R.id.loginbutton);
+        signupbutton = (Button)findViewById(R.id.signupbutton);
 
         skip.setOnClickListener(new View.OnClickListener()
         {
@@ -40,5 +41,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        signupbutton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                Intent intent2 = new Intent(MainActivity.this, SignupActivity.class);
+                startActivity(intent2);
+            }
+        });
     }
 }
