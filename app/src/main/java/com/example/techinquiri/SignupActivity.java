@@ -32,19 +32,24 @@ public class SignupActivity extends AppCompatActivity {
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 String nametxt = name.getText().toString();
                 String phonetxt = phone.getText().toString();
                 String emailtxt = email.getText().toString();
                 String pwd = password.getText().toString();
                 String cpwd = cpassword.getText().toString();
 
-                Boolean checkInsertUser = db.insertUser(nametxt, phonetxt, emailtxt, pwd);
-                if(checkInsertUser==true)
-                    Toast.makeText(SignupActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(SignupActivity.this, "Couldn't Register", Toast.LENGTH_SHORT).show();
+                if (nametxt.equals("") || phonetxt.equals("") || emailtxt.equals("") || pwd.equals("") || cpwd.equals("")) {
+                    Toast.makeText(SignupActivity.this, "All Fields are Necessary!", Toast.LENGTH_SHORT).show();
+                } else if (!pwd.equals("cpwd")) {
+                    Toast.makeText(SignupActivity.this, "Passwords do not match!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Boolean checkInsertUser = db.insertUser(nametxt, phonetxt, emailtxt, pwd);
+                    if (checkInsertUser == true)
+                        Toast.makeText(SignupActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(SignupActivity.this, "Couldn't Register", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
