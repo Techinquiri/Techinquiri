@@ -28,9 +28,6 @@ public class StoriesHomeActivity extends AppCompatActivity implements CustomAdap
 
         recyclerview = findViewById(R.id.rvStory);
         db = new dbHandler(this);
-        db.addStory("Yaksh & Pandavas","Lorem Ipsum");
-        db.addStory("Pandora's Box","Lorem Ipsum");
-        db.addStory("Squirrel's Efforts for RamSetu","Lorem Ipsum");
 
         storyid = new ArrayList<>();
         storyname = new ArrayList<>();
