@@ -35,6 +35,11 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, StoriesHomeActivity.class);
                     startActivity(intent);
                 }
+                else if(mail.equals("admin@gmail.com") && pwd.equals("adminpwd"))
+                {
+                    Intent intent = new Intent(LoginActivity.this, AddStoryActivity.class);
+                    startActivity(intent);
+                }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Invalid Credentials!", Toast.LENGTH_SHORT).show();
