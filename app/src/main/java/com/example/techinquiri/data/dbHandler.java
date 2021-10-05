@@ -11,13 +11,13 @@ public class dbHandler extends SQLiteOpenHelper
     //Initialize Variables
     private static final String DATABASE_NAME = "techinquiri_db";
     public static final String TABLE1 = "users";   //username, phone, email, password
-    public static final String TABLE2 = "story";   //storyid, storyname, relevant image
+    public static final String TABLE2 = "story";   //storyid, storyname, storydesc
     public static final String TABLE3 = "branch";  //branchid, storyid, branchname
     public static final String TABLE4 = "questions";   //qid, branchid, question, answer, isFinal, nextStoryId
 
     public dbHandler(Context context)
     {
-        super(context,DATABASE_NAME,null,2);
+        super(context,DATABASE_NAME,null,4);
     }
 
     @Override
@@ -25,9 +25,9 @@ public class dbHandler extends SQLiteOpenHelper
     {
         //Create Tables
         String table1 = "CREATE TABLE "+TABLE1+"(username TEXT, phone INTEGER, email TEXT PRIMARY KEY, password TEXT)";
-        //String table2 = "CREATE TABLE "+TABLE2+"(sid INTEGER PRIMARY KEY, sname TEXT)";
         DB.execSQL(table1);
-        //db.execSQL(table2);
+        String table2 = "CREATE TABLE "+TABLE2+"(sid INTEGER PRIMARY KEY, sname TEXT , sdesc TEXT, UNIQUE(sname))";
+        DB.execSQL(table2);
     }
 
     @Override
@@ -36,6 +36,7 @@ public class dbHandler extends SQLiteOpenHelper
         //Drop existing tables
         db.execSQL("DROP TABLE IF EXISTS "+TABLE1);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE2);
+        onCreate(db);
     }
 
     //Create Insert Method
@@ -56,10 +57,33 @@ public class dbHandler extends SQLiteOpenHelper
         else return true;
     }
 
+    public boolean addStory(String sname, String desc)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("sname",sname);
+        value.put("sdesc",desc);
+        long result = sqLiteDatabase.insert(TABLE2,null,value);
+        if(result==-1)
+            return false;
+        else return true;
+    }
+
     public Cursor viewUser()
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM users",null);
+        return cursor;
+    }
+
+    public Cursor viewStories()
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE2;
+
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.rawQuery(query,null);
         return cursor;
     }
 }

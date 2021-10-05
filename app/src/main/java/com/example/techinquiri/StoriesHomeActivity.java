@@ -1,32 +1,70 @@
 package com.example.techinquiri;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.Toast;
+import com.example.techinquiri.data.dbHandler;
+import java.util.ArrayList;
 
-public class StoriesHomeActivity extends AppCompatActivity {
+public class StoriesHomeActivity extends AppCompatActivity implements CustomAdapter.OnStoryListener {
 
-    TextView s1,s2,s3;
+    RecyclerView recyclerview;
+    dbHandler db;
+    ArrayList<String> storyid, storyname,storydesc;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stories_home);
 
-        s1 = (TextView)findViewById(R.id.story1);
-        s2 = (TextView)findViewById(R.id.story2);
-        s3 = (TextView)findViewById(R.id.story3);
+        recyclerview = findViewById(R.id.rvStory);
+        db = new dbHandler(this);
+        db.addStory("Yaksh & Pandavas","Lorem Ipsum");
+        db.addStory("Pandora's Box","Lorem Ipsum");
+        db.addStory("Squirrel's Efforts for RamSetu","Lorem Ipsum");
 
-        s1.setOnClickListener(new View.OnClickListener()
+        storyid = new ArrayList<>();
+        storyname = new ArrayList<>();
+        storydesc = new ArrayList<>();
+
+        storiesInArray();
+
+        customAdapter = new CustomAdapter(StoriesHomeActivity.this, storyid, storyname, storydesc, this);
+        recyclerview.setAdapter(customAdapter);
+        recyclerview.setLayoutManager(new LinearLayoutManager(StoriesHomeActivity.this));
+
+    }
+
+    void storiesInArray()
+    {
+        Cursor cursor = db.viewStories();
+        if(cursor.getCount()==0)
         {
-            public void onClick(View view)
+            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            while(cursor.moveToNext())
             {
-                Intent intent = new Intent(StoriesHomeActivity.this, StoryQuestionsActivity.class);
-                startActivity(intent);
+                storyid.add(cursor.getString(0));
+                storyname.add(cursor.getString(1));
+                storydesc.add(cursor.getString(2));
             }
-        });
+        }
+    }
+
+    @Override
+    public void OnStoryClick(int position) {
+        Intent intent = new Intent(this,StoryBranchActivity.class);
+        intent.putExtra("sname",storyname.get(position));
+        startActivity(intent);
     }
 }
