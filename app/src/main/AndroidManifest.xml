@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Techinquiri">
         <activity
+            android:name=".AddBranchActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddStoryActivity"
             android:exported="true" />
         <activity
