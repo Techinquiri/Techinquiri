@@ -17,7 +17,7 @@ public class dbHandler extends SQLiteOpenHelper
 
     public dbHandler(Context context)
     {
-        super(context,DATABASE_NAME,null,5);
+        super(context,DATABASE_NAME,null,6);
     }
 
     @Override
@@ -30,6 +30,8 @@ public class dbHandler extends SQLiteOpenHelper
         DB.execSQL(table2);
         String table3 = "CREATE TABLE "+TABLE3+"(bid INTEGER PRIMARY KEY, sid INTEGER, bname TEXT, UNIQUE(bname))";
         DB.execSQL(table3);
+        String table4 = "CREATE TABLE "+TABLE4+"(qid INTEGER PRIMARY KEY, branchid INTEGER, question TEXT, answer TEXT, isFinal TEXT, nextStoryId INTEGER, UNIQUE(question))";
+        DB.execSQL(table4);
     }
 
     @Override
@@ -39,6 +41,7 @@ public class dbHandler extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS "+TABLE1);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE2);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE3);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE4);
         onCreate(db);
     }
 
@@ -73,8 +76,7 @@ public class dbHandler extends SQLiteOpenHelper
         else return true;
     }
 
-
-     public boolean addBranch(Integer sid, String bname)
+    public boolean addBranch(Integer sid, String bname)
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
@@ -86,6 +88,32 @@ public class dbHandler extends SQLiteOpenHelper
             return false;
         else return true;
     }
+
+    public boolean addQuestions(int bid, String question, String answer, String isFinal, int nextStoryId)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        value.put("branchid",bid);
+        value.put("question",question);
+        value.put("answer",answer);
+        value.put("isFinal",isFinal);
+        value.put("nextStoryId",nextStoryId);
+        long result = sqLiteDatabase.insert(TABLE4,null,value);
+        if(result==-1)
+            return false;
+        else return true;
+    }
+
+    public boolean deleteStory(String sname)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        long result = sqLiteDatabase.delete(TABLE2,"sname=?",new String[]{sname});
+        if(result==-1)
+            return false;
+        else return true;
+    }
+
+
 
     public Cursor viewUser()
     {
