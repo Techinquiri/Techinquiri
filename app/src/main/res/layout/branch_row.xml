@@ -8,11 +8,10 @@
 
     <EditText
         android:id="@+id/add_branch_name"
-        android:layout_width="327dp"
-        android:layout_height="37dp"
+        android:layout_width="333dp"
+        android:layout_height="62dp"
         android:layout_weight="1"
         android:hint="Branch Name"
-        android:paddingLeft="10dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"

@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else if(mail.equals("admin@gmail.com") && pwd.equals("adminpwd"))
                 {
-                    Intent intent = new Intent(LoginActivity.this, AddStoryActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                     startActivity(intent);
                 }
                 else

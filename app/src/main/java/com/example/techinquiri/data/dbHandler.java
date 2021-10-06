@@ -17,7 +17,7 @@ public class dbHandler extends SQLiteOpenHelper
 
     public dbHandler(Context context)
     {
-        super(context,DATABASE_NAME,null,4);
+        super(context,DATABASE_NAME,null,5);
     }
 
     @Override
@@ -28,6 +28,8 @@ public class dbHandler extends SQLiteOpenHelper
         DB.execSQL(table1);
         String table2 = "CREATE TABLE "+TABLE2+"(sid INTEGER PRIMARY KEY, sname TEXT , sdesc TEXT, UNIQUE(sname))";
         DB.execSQL(table2);
+        String table3 = "CREATE TABLE "+TABLE3+"(bid INTEGER PRIMARY KEY, sid INTEGER, bname TEXT, UNIQUE(bname))";
+        DB.execSQL(table3);
     }
 
     @Override
@@ -36,6 +38,7 @@ public class dbHandler extends SQLiteOpenHelper
         //Drop existing tables
         db.execSQL("DROP TABLE IF EXISTS "+TABLE1);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE2);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE3);
         onCreate(db);
     }
 
@@ -65,6 +68,20 @@ public class dbHandler extends SQLiteOpenHelper
         value.put("sname",sname);
         value.put("sdesc",desc);
         long result = sqLiteDatabase.insert(TABLE2,null,value);
+        if(result==-1)
+            return false;
+        else return true;
+    }
+
+
+     public boolean addBranch(Integer sid, String bname)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("sid",sid);
+        value.put("bname",bname);
+        long result = sqLiteDatabase.insert(TABLE3,null,value);
         if(result==-1)
             return false;
         else return true;
