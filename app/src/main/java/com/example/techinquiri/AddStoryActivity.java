@@ -40,7 +40,7 @@ public class AddStoryActivity extends AppCompatActivity {
                     Boolean checkAddStory = db.addStory(nametxt, desc);
                     if(checkAddStory ==true)
                     {
-                        Intent intent = new Intent(AddStoryActivity.this,StoriesHomeActivity.class);
+                        Intent intent = new Intent(AddStoryActivity.this,AddBranchActivity.class);
                         startActivity(intent);
                     }
                     else Toast.makeText(AddStoryActivity.this, "Some Error Occured!", Toast.LENGTH_SHORT).show();
