@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class dbHandler extends SQLiteOpenHelper
 {
@@ -113,7 +114,19 @@ public class dbHandler extends SQLiteOpenHelper
         else return true;
     }
 
-
+    public int getSID(String sname)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] columns ={"sid"};
+        int sid = -1;
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.query(TABLE2, columns, "sname=?", new String[] { sname }, null, null, null);
+        if(cursor.moveToFirst())
+        {
+            sid = Integer.parseInt(cursor.getString(0));
+        }
+        return sid;
+    }
 
     public Cursor viewUser()
     {
@@ -128,6 +141,16 @@ public class dbHandler extends SQLiteOpenHelper
         String query = "SELECT * FROM " + TABLE2;
 
         Cursor cursor = null;
+        cursor = sqLiteDatabase.rawQuery(query,null);
+        return cursor;
+    }
+
+    public Cursor viewBranchByStory(Integer sid)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT bname FROM " + TABLE3 + " WHERE sid = " +sid;
+
+        Cursor cursor= null;
         cursor = sqLiteDatabase.rawQuery(query,null);
         return cursor;
     }
