@@ -57,10 +57,10 @@ public class StoryBranchAdapter extends RecyclerView.Adapter<StoryBranchAdapter.
 
         @Override
         public void onClick(View view) { onBranchListener.OnBranchClick(getAdapterPosition()); }
-        }
+    }
 
-        public interface OnBranchListener{
-            void OnBranchClick(int position);
-        }
+    public interface OnBranchListener{
+       void OnBranchClick(int position);
+    }
 
 }
