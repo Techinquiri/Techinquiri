@@ -128,6 +128,20 @@ public class dbHandler extends SQLiteOpenHelper
         return sid;
     }
 
+    public int getBID(String bname)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] columns = {"bid"};
+        int bid = -1;
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.query(TABLE3, columns, "bname=?", new String[] {bname}, null, null, null);
+        if(cursor.moveToFirst())
+        {
+            bid = Integer.parseInt(cursor.getString(0));
+        }
+        return bid;
+    }
+
     public Cursor viewUser()
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -151,6 +165,16 @@ public class dbHandler extends SQLiteOpenHelper
         String query = "SELECT bname FROM " + TABLE3 + " WHERE sid = " +sid;
 
         Cursor cursor= null;
+        cursor = sqLiteDatabase.rawQuery(query,null);
+        return cursor;
+    }
+
+    public Cursor viewQuestionsByBranch(Integer bid)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT question FROM " + TABLE4 + " WHERE branchid = " + bid;
+
+        Cursor cursor = null;
         cursor = sqLiteDatabase.rawQuery(query,null);
         return cursor;
     }
