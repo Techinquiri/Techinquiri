@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class dbHandler extends SQLiteOpenHelper
 {
@@ -142,6 +144,20 @@ public class dbHandler extends SQLiteOpenHelper
         return bid;
     }
 
+//    public int getQID(String question)
+//    {
+//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+//        String[] columns = {"qid"};
+//        int qid = -1;
+//        Cursor cursor = null;
+//        cursor = sqLiteDatabase.query(TABLE4, columns, "question=?", new String[] {question}, null, null, null);
+//        if(cursor.moveToFirst())
+//        {
+//            qid = Integer.parseInt(cursor.getString(0));
+//        }
+//        return qid;
+//    }
+
     public Cursor viewUser()
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -177,5 +193,25 @@ public class dbHandler extends SQLiteOpenHelper
         Cursor cursor = null;
         cursor = sqLiteDatabase.rawQuery(query,null);
         return cursor;
+    }
+
+     public ArrayList<String> getAnswer(String question)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] columns = {"answer", "isFinal", "nextStoryId"};
+        ArrayList<String> result;
+        result = new ArrayList<String>() ;
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.query(TABLE4, columns, "question=?", new String[] {question}, null, null, null);
+        if(cursor.moveToFirst())
+        {
+            String ans = cursor.getString(0);
+            String isFinal = cursor.getString(1);
+            String ID = cursor.getString(2);
+            result.add(ans);
+            result.add(isFinal);
+            result.add(ID);
+        }
+        return result;
     }
 }
