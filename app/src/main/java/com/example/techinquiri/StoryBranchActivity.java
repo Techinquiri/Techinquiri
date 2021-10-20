@@ -76,5 +76,6 @@ public class StoryBranchActivity extends AppCompatActivity implements StoryBranc
         intent.putExtra("sname",sname);
         intent.putExtra("bname",branchname.get(position));
         startActivity(intent);
+
     }
 }

@@ -31,7 +31,6 @@ public class StoryBranchAdapter extends RecyclerView.Adapter<StoryBranchAdapter.
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.branch_item,parent, false);
         return new MyViewHolder(view,mOnBranchListener);
-
     }
 
     @Override
