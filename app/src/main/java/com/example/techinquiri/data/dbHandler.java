@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class dbHandler extends SQLiteOpenHelper
 {
     //Initialize Variables
@@ -128,6 +131,35 @@ public class dbHandler extends SQLiteOpenHelper
         return sid;
     }
 
+    public int getBID(String bname)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] columns = {"bid"};
+        int bid = -1;
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.query(TABLE3, columns, "bname=?", new String[] {bname}, null, null, null);
+        if(cursor.moveToFirst())
+        {
+            bid = Integer.parseInt(cursor.getString(0));
+        }
+        return bid;
+    }
+
+//    public int getQID(String question)
+//    {
+//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+//        String[] columns = {"qid"};
+//        int qid = -1;
+//        Cursor cursor = null;
+//        cursor = sqLiteDatabase.query(TABLE4, columns, "question=?", new String[] {question}, null, null, null);
+//        if(cursor.moveToFirst())
+//        {
+//            qid = Integer.parseInt(cursor.getString(0));
+//        }
+//        return qid;
+//    }
+
+
     public Cursor viewUser()
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -153,5 +185,35 @@ public class dbHandler extends SQLiteOpenHelper
         Cursor cursor= null;
         cursor = sqLiteDatabase.rawQuery(query,null);
         return cursor;
+    }
+
+    public Cursor viewQuestionsByBranch(Integer bid)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT question FROM " + TABLE4 + " WHERE branchid = " + bid;
+
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.rawQuery(query,null);
+        return cursor;
+    }
+
+     public ArrayList<String> getAnswer(String question)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] columns = {"answer", "isFinal", "nextStoryId"};
+        ArrayList<String> result;
+        result = new ArrayList<String>() ;
+        Cursor cursor = null;
+        cursor = sqLiteDatabase.query(TABLE4, columns, "question=?", new String[] {question}, null, null, null);
+        if(cursor.moveToFirst())
+        {
+            String ans = cursor.getString(0);
+            String isFinal = cursor.getString(1);
+            String ID = cursor.getString(2);
+            result.add(ans);
+            result.add(isFinal);
+            result.add(ID);
+        }
+        return result;
     }
 }

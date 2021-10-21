@@ -14,7 +14,7 @@ import com.example.techinquiri.data.dbHandler;
 
 import java.util.ArrayList;
 
-public class StoryBranchActivity extends AppCompatActivity {
+public class StoryBranchActivity extends AppCompatActivity implements StoryBranchAdapter.OnBranchListener {
 
     dbHandler db;
     RecyclerView recyclerview;
@@ -40,7 +40,7 @@ public class StoryBranchActivity extends AppCompatActivity {
 
         branchInArray(sname);
 
-        storyBranchAdapter = new StoryBranchAdapter(StoryBranchActivity.this, branchname);
+        storyBranchAdapter = new StoryBranchAdapter(StoryBranchActivity.this, branchname, this);
         recyclerview.setAdapter(storyBranchAdapter);
         recyclerview.setLayoutManager(new LinearLayoutManager(StoryBranchActivity.this));
 
@@ -68,5 +68,14 @@ public class StoryBranchActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public void OnBranchClick(int position) {
+        Intent intent = new Intent(this,StoryQuestionsActivity.class);
+        intent.putExtra("sname",sname);
+        intent.putExtra("bname",branchname.get(position));
+        startActivity(intent);
+
     }
 }

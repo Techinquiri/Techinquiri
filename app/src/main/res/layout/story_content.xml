@@ -38,12 +38,21 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/answer"
                 android:layout_width="match_parent"
                 android:justificationMode="inter_word"
                 android:layout_height="match_parent"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut convallis diam, vel dictum diam. Proin ultricies turpis a hendrerit porttitor. Etiam tortor arcu, condimentum in mauris cursus, scelerisque varius est. In id nunc hendrerit, interdum neque ac, tincidunt felis. Donec vel aliquet sem. Praesent hendrerit neque id mi semper, at facilisis augue faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus pulvinar hendrerit tortor. Sed quis rhoncus arcu. Phasellus ullamcorper lacus vel maximus bibendum. Aliquam imperdiet fermentum mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Curabitur posuere molestie sagittis. Nulla velit nibh, imperdiet tincidunt eleifend hendrerit, tristique ac nunc. Sed sodales, sem nec facilisis efficitur, arcu arcu lacinia dolor, at gravida tortor tellus porttitor turpis. Nunc felis turpis, pretium eget diam sed, molestie viverra mi. Phasellus dignissim mauris id enim gravida ultricies. Ut sem orci, elementum sit amet pulvinar ac, tristique non leo. Nullam id mi tempor, placerat augue sit amet, porttitor diam. Aliquam convallis, magna ut cursus commodo, ligula nisi aliquam tortor, quis bibendum risus elit sed dolor. Curabitur laoreet, turpis at facilisis convallis, enim nulla molestie nibh, in maximus tortor elit eget orci. Ut elementum venenatis massa, vel pharetra ipsum. Nam interdum erat mattis elit vulputate, vitae iaculis urna posuere. Mauris a semper justo. Etiam ut posuere sem. In posuere tristique pulvinar. Cras blandit suscipit ipsum a commodo."
                 tools:targetApi="o" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/Finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="275sp"
+        android:text="Complete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

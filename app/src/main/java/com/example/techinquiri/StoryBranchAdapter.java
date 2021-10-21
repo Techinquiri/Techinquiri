@@ -17,10 +17,12 @@ public class StoryBranchAdapter extends RecyclerView.Adapter<StoryBranchAdapter.
 
     private Context context;
     private ArrayList branchname;
+    private OnBranchListener mOnBranchListener;
 
-    StoryBranchAdapter(Context context, ArrayList branchname){
+    StoryBranchAdapter(Context context, ArrayList branchname, OnBranchListener onBranchListener){
         this.context = context;
         this.branchname = branchname;
+        this.mOnBranchListener = onBranchListener;
     }
 
     @NonNull
@@ -28,8 +30,7 @@ public class StoryBranchAdapter extends RecyclerView.Adapter<StoryBranchAdapter.
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.branch_item,parent, false);
-        return new MyViewHolder(view);
-
+        return new MyViewHolder(view,mOnBranchListener);
     }
 
     @Override
@@ -42,13 +43,23 @@ public class StoryBranchAdapter extends RecyclerView.Adapter<StoryBranchAdapter.
         return branchname.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView branchnametxt;
-        public MyViewHolder(@NonNull View itemView) {
+        OnBranchListener onBranchListener;
+        public MyViewHolder(@NonNull View itemView, OnBranchListener onBranchListener) {
             super(itemView);
             branchnametxt = itemView.findViewById(R.id.branchinfo);
+            this.onBranchListener = onBranchListener;
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) { onBranchListener.OnBranchClick(getAdapterPosition()); }
+    }
+
+    public interface OnBranchListener{
+       void OnBranchClick(int position);
     }
 
 }
