@@ -45,15 +45,23 @@
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.28125" />
         <entry key="app/src/main/res/drawable/rounded_rectangle.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/drawable/stroke_color.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/activity_add_branch.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_add_story.xml" value="0.35885416666666664" />
+        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/get_started1.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/get_started2.xml" value="0.2717391304347826" />
-        <entry key="app/src/main/res/layout/get_started3.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_story_branch.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/admin_story_item.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/branch_item.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/branch_row.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/get_started1.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/get_started2.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/get_started3.xml" value="0.33" />
         <entry key="app/src/main/res/layout/reward.xml" value="0.29444444444444445" />
         <entry key="app/src/main/res/layout/stories_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/story_content.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/story_item.xml" value="0.2" />
         <entry key="app/src/main/res/layout/story_questions.xml" value="0.26434426229508196" />
       </map>
     </option>
