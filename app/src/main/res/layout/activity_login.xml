@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/loginimage"
-        android:layout_width="414dp"
-        android:layout_height="406dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toTopOf="@+id/loginemail"
         app:layout_constraintEnd_toEndOf="parent"

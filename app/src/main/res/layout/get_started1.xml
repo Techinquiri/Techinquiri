@@ -34,37 +34,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <Button
             android:id="@+id/containedButton"
             android:layout_width="81dp"
             android:layout_height="83dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
             app:icon="@drawable/ic_baseline_arrow_forward"
             app:iconGravity="textTop"
             app:iconSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9"
-            app:layout_constraintVertical_bias="0.0"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="185dp"
-            android:layout_height="216dp"
-            android:layout_marginTop="60dp"
+            android:layout_width="246dp"
+            android:layout_height="248dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textButton"
-            app:srcCompat="@mipmap/get_started3" />
+            app:srcCompat="@drawable/get_started1" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:text="Welcome to"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="24sp"
